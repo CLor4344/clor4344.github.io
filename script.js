@@ -11,6 +11,7 @@ function readTextFile(file) {
                 console.log(allText);
                 newFun(allText);
                 round = allText;
+                document.getElementById("output").innerHTML = allText;
             }
         }
     }
