@@ -1,0 +1,58 @@
+.horizontal-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.number-container {
+    height: 100px;
+    width: 100px;
+    font-size: 100px;
+
+}
+
+#twit_img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+    height: 1cap;
+    width: auto;
+    margin: 0 auto;
+}
+
+.slides {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    transition: transform 0.5s;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    scroll-behavior: smooth;
+}
+
+.slides .div {
+    width: 100px;
+    height: 100px;
+}
+
+.num-slide {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 100px;
+    border-radius: 10px;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+
+}
+.changed {
+    background-color: aquamarine;
+}
