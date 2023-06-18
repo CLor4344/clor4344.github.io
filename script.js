@@ -93,6 +93,7 @@ function newFun(string) {
 
             break;
         case 5:
+            alert("5 digits");
             const testi = document.getElementsByClassName('current-slide');
             if (testi.length == 0) {
                 document.getElementById('num-' + numArray[3]).classList.add('current-slide');
@@ -109,6 +110,7 @@ function newFun(string) {
             console.log(sliderNum);
             break;
         case 6:
+            alert("6 digits");
 
             document.getElementById('digit-one').innerHTML = numArray[0];
             document.getElementById('digit-two').innerHTML = numArray[1];
