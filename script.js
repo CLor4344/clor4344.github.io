@@ -62,6 +62,8 @@ fetch(url)
 //console.log(newstuff);*/
 function newFun(string) {
     var numArray = string.split("");
+    console.log(string);
+    console.log(numArray);
     switch (numArray.length) {
         case 0:
             alert("0 digits");
@@ -111,7 +113,7 @@ function newFun(string) {
             break;
         case 6:
             alert("6 digits");
-
+            
             document.getElementById('digit-one').innerHTML = numArray[0];
             document.getElementById('digit-two').innerHTML = numArray[1];
             document.getElementById('digit-three').innerHTML = numArray[2];
