@@ -113,24 +113,6 @@ function newFun(string) {
             const sliderNum = document.querySelectorAll('.num-slide').length;
             console.log(sliderNum);
 
-            var index = 6;
-            slides[index].classList.add('active');
-            document.getElementById("digit-five").animate([
-                { transform: 'translateY(-100%)', opacity: '0' },
-                { transform: 'translateY(-90%)', opacity: '0.1' },
-                { transform: 'translateY(-80%)', opacity: '0.2' },
-                { transform: 'translateY(-70%)', opacity: '0.3' },
-                { transform: 'translateY(-60%)', opacity: '0.4' },
-                { transform: 'translateY(-50%)', opacity: '0.5' },
-                { transform: 'translateY(-40%)', opacity: '0.6' },
-                { transform: 'translateY(-30%)', opacity: '0.7' },
-                { transform: 'translateY(-20%)', opacity: '0.8' },
-                { transform: 'translateY(-10%)', opacity: '0.9' },
-                { transform: 'translateX(0)', opacity: '1' }
-            ], {
-                duration: 500,
-            });
-
             break;
         case 6:
 
