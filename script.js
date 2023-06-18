@@ -11,7 +11,7 @@ function readTextFile(file) {
                 console.log(allText);
                 newFun(allText);
                 round = allText;
-                document.getElementById("output").innerHTML = allText;
+                document.getElementById('output').innerHTML = allText;
             }
         }
     }
@@ -93,12 +93,6 @@ function newFun(string) {
 
             break;
         case 5:
-            //document.getElementById('digit-one').innerHTML = numArray[0];
-            //document.getElementById('digit-two').innerHTML = numArray[1];
-            //document.getElementById('digit-three').innerHTML = numArray[2];
-            //document.getElementById('digit-four').innerHTML = numArray[3];
-            //document.getElementById('digit-five').innerHTML = numArray[4];
-            //document.getElementById('digit-six').innerHTML = numArray[4];
             const testi = document.getElementsByClassName('current-slide');
             if (testi.length == 0) {
                 document.getElementById('num-' + numArray[3]).classList.add('current-slide');
@@ -113,7 +107,6 @@ function newFun(string) {
             const slides = document.querySelectorAll('.slide');
             const sliderNum = document.querySelectorAll('.num-slide').length;
             console.log(sliderNum);
-
             break;
         case 6:
 
