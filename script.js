@@ -18,6 +18,28 @@ function readTextFile(file) {
     rawFile.send(null);
 }
 readTextFile('newFollowCount.txt');
+
+function readTestFile(file) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4) {
+            if (rawFile.status === 200 || rawFile.status == 0) {
+                var allText = rawFile.responseText;
+                //alert(allText);
+                console.log(allText);
+                newFun(allText);
+                round = allText;
+                document.getElementById('inputss').innerHTML = allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+console.log('calling new thing to test https');
+readTestFile('https://github.com/CLor4344/follower/blob/followermain/newFollowCount.txt');
+
+
 const element = document.getElementById("change");
 element.addEventListener("click", function () {
     document.querySelector('#textarea').classList.add('changed');
