@@ -111,7 +111,7 @@ function pageUp() {
         .then(r => r.text())
         .then(t => {
             document.getElementById('inputss').innerHTML = t;
-            console.log('testing' + t);
+            console.log('testingpu' + t);
         });
     setTimeout(pageUp, 5000);
 
@@ -124,7 +124,7 @@ function paged() {
         .then(r => r.text())
         .then(t => {
             document.getElementById('inputsss').innerHTML = t;
-            console.log('testing' + t);
+            console.log('testingpd' + t);
         });
     setTimeout(paged, 5000);
 
