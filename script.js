@@ -22,7 +22,7 @@ function readTextFile(file) {
     }
     rawFile.send(null);
 }
-readTextFile('https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt');
+readTextFile('https://github.com/CLor4344/follower/blob/followermain/newFollowCount.txt');
 
 
 function readTestFile(file) {
