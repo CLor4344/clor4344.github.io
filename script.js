@@ -22,7 +22,7 @@ function readTextFile(file) {
                 //newFun(allText);
                 round = allText;
                 getNum(allText);
-                document.getElementById('output').innerHTML = allText;
+                
                 console.log(typeof(allText))
                 oldVal = allText;*/
             }
