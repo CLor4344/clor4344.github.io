@@ -6,6 +6,10 @@
     max-height: 100px;
     display: flex;
 }
+body {
+    padding: 25px;
+    background-color: #15202B;
+  }
 
 .img-container{
     width: auto;
@@ -18,6 +22,14 @@
     object-fit: contain;
     border-radius: 50%;
     border: solid;
+    border-color: aliceblue;
+}
+.prof-img{
+    width: 30%;
+    object-fit: contain;
+    border-radius: 50%;
+    border: solid;
+    border-color: aliceblue;
 }
 
 .carousel {
@@ -51,8 +63,9 @@
     font-size: 100px;
     border-radius: 10px;
     border: solid;
+    border-color: aliceblue;
     margin-right: 40px;
-    background: #eee;
+    background: #7a7979;
     transform-origin: center center;
     transform: scale(1);
     transition: transform 0.5s;

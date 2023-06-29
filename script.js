@@ -2,13 +2,14 @@ var round;
 var timer = 1000;
 var urlthing = 'https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt';
 var oldVal = '';
+console.log(Date.now());
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file);
     rawFile.onreadystatechange = function () {
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText.trim();
+                /*var allText = rawFile.responseText.trim();
                 //alert(allText);
                 console.log('test' + allText + 'ending');
                 console.log(allText.length);
@@ -16,38 +17,47 @@ function readTextFile(file) {
                 round = allText;
                 getNum(allText);
                 document.getElementById('output').innerHTML = allText;
-                oldVal = allText;
+                console.log(typeof(allText))
+                oldVal = allText;*/
             }
         }
     }
     rawFile.send(null);
 }
+//readTextFile('https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt');
 readTextFile('https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt');
-
-
-function readTestFile(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var testText = rawFile.responseText;
-                //alert(allText);
-                console.log(testText);
-                //newFun(allText);
-                if (oldVal != testText) {
-                    document.getElementById('inputss').innerHTML = 'This is the old and new values ' + oldVal + ' ' + testText;
-                    oldVal = testText;
-                }
-            }
+function getFollowCount() {
+    fetch('https://api.github.com/repos/CLor4344/follower/contents/newFollowCount.txt'+"?dummy="+Date.now(), {
+        method: "GET",
+        headers: {
+            Authorization: 'token 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'
         }
-    }
-    rawFile.send(null);
-}
-//let interval = setInterval(readTestFile, timer, urlthing);
 
-console.log('calling new thing to test https');
-//setInterval(readTestFile, timer, urlthing);
+    })
+        .then(response => response.json())
+        .then(data => {
+            //var filesha = data[1].sha
+            var decodable = atob(data.content);
+            console.log(data._links.git + '\n' + decodable); // Prints result from `response.json()` in getRequest
+            document.getElementById('inputss').innerHTML = decodable;
+            console.log(typeof (decodable));
+            console.log(round);
+            if (round == undefined) {
+                console.log("BEGGINGING " + decodable)
+                getNum(decodable);
+                round = decodable;
+            }
+            else {
+                console.log("UPDATING " + round + " "+ decodable);
+                updateNum(round, decodable);
+                round = decodable;
+            }
+        })
+        .catch(error => console.error(error))
+        setTimeout(getFollowCount, 5000);
+}
+getFollowCount();
+
 const element = document.getElementById("change");
 element.addEventListener("click", function () {
     document.querySelector('#textarea').classList.add('changed');
@@ -59,64 +69,18 @@ element2.addEventListener("click", function () {
     oldVal = (parseInt(oldVal) + 1).toString();
 });
 const element3 = document.getElementById("testMove");
-var test = 1;
-element3.addEventListener("click", function () {
-    geturlstuff('https://twitter.com/quinrex/photo')
-
-});
-/*
-const url = "https://github.com/CLor4344/follower/blob/followermain/newFollowCount.txt";
-const xhttp = new XMLHttpRequest();
-xhttp.onload = function(){
-    
-    //document.getElementById('output').innerHTML = this.responseText;
-    newFun(this.responseText);
-    return false;
-}
-xhttp.open("GET", "newFollowCount.txt");
-xhttp.send();
-
-function loadDoc(url) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById('output').innerHTML = this.responseText;
-        alert(this.responseText);
-        newFun(this.responseText);
-      }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-}
-loadDoc("https://github.com/CLor4344/follower/blob/followermain/newFollowCount.txt");
-
-
-/*
-
-
-
-//var newstuff = OpenFile("newFollowCount.txt");
-//var newstuff = readTextFile("newFollowCount.txt");
-//console.log(newstuff);*/
-var myHeaders = new Headers();
-myHeaders.append('pragma', 'no-cache');
-myHeaders.append('cache-control', 'no-cache');
-var myInit = {
-    method: 'GET',
-    headers: myHeaders
-};
-//var myRequest = new Request();
-function pageUp() {
+/*function pageUp() {
     fetch("http://127.0.0.1:8000/newfollowcount.txt")
         .then(r => r.text())
         .then(t => {
             document.getElementById('inputss').innerHTML = t;
-            console.log('testingpu' + t);
+            console.log('testing' + t);
         });
     setTimeout(pageUp, 5000);
 
 }
-pageUp();
+pageUp();*/
+
 function paged() {
     fetch("https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt", {
         cache: 'no-store'
@@ -124,7 +88,7 @@ function paged() {
         .then(r => r.text())
         .then(t => {
             document.getElementById('inputsss').innerHTML = t;
-            console.log('testingpd' + t);
+            //console.log('testing' + t);
         });
     setTimeout(paged, 5000);
 
@@ -216,7 +180,7 @@ function getNum(num) {
         var num = parseInt(firstArray[i]);
         console.log(num);
         var moveAmount = num * slideHeight + 'px';
-        console.log(moveAmount);
+        //console.log(moveAmount);
         slides[i].style.transform = 'translateY(-' + moveAmount + ')';
 
     }
@@ -248,8 +212,8 @@ function updateNum(oldNum, newNum) {
         document.getElementById('sixth-digit').style.opacity = 1;
     }
     if (oldArray.length == newArray.length) {
-        console.log('equal length');
-        console.log('jump ' + testJump);
+        //console.log('equal length');
+        //console.log('jump ' + testJump);
 
         //console.log(num);
 
@@ -264,7 +228,7 @@ function updateNum(oldNum, newNum) {
             var slideHeight = document.querySelector('.num-slide').getBoundingClientRect().height;
 
             var moveAmount = num * slideHeight + 'px';
-            console.log('old plus new ' + num);
+            //console.log('old plus new ' + num);
             if (num <= 9) {
                 console.log(moveAmount);
                 slides[i].style.transform = 'translateY(-' + moveAmount + ')';
