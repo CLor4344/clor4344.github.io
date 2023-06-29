@@ -30,7 +30,7 @@ function getFollowCount() {
     fetch('https://api.github.com/repos/CLor4344/follower/contents/newFollowCount.txt'+"?dummy="+Date.now(), {
         method: "GET",
         headers: {
-            Authorization: 'token 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'
+            Authorization: 'token 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'
         }
 
     })
