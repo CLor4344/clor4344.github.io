@@ -69,17 +69,6 @@ element2.addEventListener("click", function () {
     oldVal = (parseInt(oldVal) + 1).toString();
 });
 const element3 = document.getElementById("testMove");
-/*function pageUp() {
-    fetch("http://127.0.0.1:8000/newfollowcount.txt")
-        .then(r => r.text())
-        .then(t => {
-            document.getElementById('inputss').innerHTML = t;
-            console.log('testing' + t);
-        });
-    setTimeout(pageUp, 5000);
-
-}
-pageUp();*/
 
 function paged() {
     fetch("https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt", {
@@ -94,78 +83,7 @@ function paged() {
 
 }
 paged();
-function newFun(string) {
-    /*
-    var numArray = string.split("");
-    console.log(numArray);
-    switch (numArray.length) {
-        case 0:
-            alert("0 digits");
 
-            break;
-        case 1:
-            alert("1 digits");
-
-            document.getElementById('digit-six').innerHTML = numArray[0];
-            break;
-        case 2:
-            alert("2 digits");
-            document.getElementById('digit-one').innerHTML = numArray[0];
-            document.getElementById('digit-two').innerHTML = numArray[1];
-            break;
-        case 3:
-            alert("3 digits");
-            document.getElementById('digit-one').innerHTML = numArray[0];
-            document.getElementById('digit-two').innerHTML = numArray[1];
-            document.getElementById('digit-three').innerHTML = numArray[2];
-
-            break;
-        case 4:
-            alert("4 digits");
-            document.getElementById('digit-one').innerHTML = numArray[0];
-            document.getElementById('digit-two').innerHTML = numArray[1];
-            document.getElementById('digit-three').innerHTML = numArray[2];
-            document.getElementById('digit-four').innerHTML = numArray[3];
-
-            break;
-        case 5:
-            
-            const testi = document.getElementsByClassName('current-slide');
-            console.log(testi);
-            if (testi.length == 0) {
-                document.getElementById('num-' + numArray[0]).classList.add('current-slide');
-                //getNum(numArray[0]);
-                
-            } else {
-                console.log(document.querySelector('.current-slide'));
-                //updateNum(numArray[4]);
-                console.log('when?')
-            }
-            console.log(numArray[3]);
-
-            const slides = document.querySelectorAll('.slide');
-            const sliderNum = document.querySelectorAll('.num-slide').length;
-            console.log(sliderNum);
-            document.getElementById('digit-one').innerHTML = numArray[0];
-            document.getElementById('digit-two').innerHTML = numArray[1];
-            document.getElementById('digit-three').innerHTML = numArray[2];
-            document.getElementById('digit-four').innerHTML = numArray[3];
-            document.getElementById('digit-five').innerHTML = numArray[4];
-            break;
-        case 6:
-            alert('6');
-            document.getElementById('digit-one').innerHTML = numArray[0];
-            document.getElementById('digit-two').innerHTML = numArray[1];
-            document.getElementById('digit-three').innerHTML = numArray[2];
-            document.getElementById('digit-four').innerHTML = numArray[3];
-            document.getElementById('digit-five').innerHTML = numArray[4];
-            document.getElementById('digit-six').innerHTML = numArray[5];
-            break;
-        default:
-        // code block
-    }*/
-}
-//document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + round;
 function getNum(num) {
     var firstArray = num.split('');
     console.log('first array length ' + firstArray.length);

@@ -65,7 +65,7 @@ body {
     border: solid;
     border-color: aliceblue;
     margin-right: 40px;
-    background: #7a7979;
+    background: #bbbaba;
     transform-origin: center center;
     transform: scale(1);
     transition: transform 0.5s;
