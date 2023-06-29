@@ -3,6 +3,12 @@ var timer = 1000;
 var urlthing = 'https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt';
 var oldVal = '';
 console.log(Date.now());
+fetch("newFollowCount.txt")
+  .then(res => res.text())
+  .then(text => {
+    document.getElementById('output').innerHTML = text;
+   })
+  .catch((e) => console.error(e));
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file);
