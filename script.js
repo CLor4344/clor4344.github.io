@@ -6,7 +6,7 @@ console.log(Date.now());
 fetch("newFollowCount.txt")
   .then(res => res.text())
   .then(text => {
-    document.getElementById('output').innerHTML = text;
+    document.getElementById('output').innerHTML = "huh" + text;
    })
   .catch((e) => console.error(e));
 function readTextFile(file) {
