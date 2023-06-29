@@ -3,6 +3,7 @@ var timer = 1000;
 var urlthing = 'https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt';
 var oldVal = '';
 console.log(Date.now());
+console.log("testing now");
 fetch("newFollowCount.txt")
   .then(res => res.text())
   .then(text => {
