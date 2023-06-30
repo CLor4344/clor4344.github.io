@@ -21,7 +21,7 @@ await octokit.request('GET /repos/clor4344/follower/', {
     headers: {
         'X-GitHub-Api-Version': '2022-11-28'
     }
-});*/
+});
 fetch('https://api.github.com/repos/CLor4344/follower/contents/newFollowCount.txt',{
     method: "GET",
     headers: {
@@ -32,10 +32,45 @@ fetch('https://api.github.com/repos/CLor4344/follower/contents/newFollowCount.tx
 .then(response => response.json())
 .then(data => {
     //var filesha = data[1].sha
+    console.log(data.content);
+    var testing = data.content.replace('=\n', '');
+    console.log(testing);
     var decodable = atob(data.content);
 
   console.log(data._links.git+'\n'+ decodable) // Prints result from `response.json()` in getRequest
 })
 .catch(error => console.error(error))
+*/
+const http = require('https');
+/*
+fetch('https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudantnosqldb.appdomain.cloud/testing',{
+    method: "GET"        
+})
+.then(response => response.json())
+.then(data => {
+    //var filesha = data[1].sha
+    console.log(data.content);
+    //console.log(testing);
+  console.log("hnn") // Prints result from `response.json()` in getRequest
+})
+*/
 
+fetch("https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudant.com/testing/_design/ddd/_view/ddd", {
+    method: "GET",
+    credentials: 'include',
+    headers: {
+        Authorization: 'Basic ' +btoa('apikey-v2-22yshm6czdhyo8a3ma5071g23ry6kqh5wy5dn8shngca:91fc214302068a55295da29da7e412c7') 
+    }
+})
+    .then(res => {
+        if (res.ok) {
+            //console.log(res)
+            return res.json()
+        }
+        else
+            console.log("dun goofed")
+    }).then(data =>{
+        console.log(data)
+        console.log(data.rows[0].value.follower)
+    })
 

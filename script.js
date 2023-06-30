@@ -3,68 +3,45 @@ var timer = 1000;
 var urlthing = 'https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt';
 var oldVal = '';
 console.log(Date.now());
-console.log("testing now");
-fetch("newFollowCount.txt")
-  .then(res => res.text())
-  .then(text => {
-    document.getElementById('output').innerHTML = "huh" + text;
-   })
-  .catch((e) => console.error(e));
-function readTextFile(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                /*var allText = rawFile.responseText.trim();
-                //alert(allText);
-                console.log('test' + allText + 'ending');
-                console.log(allText.length);
-                //newFun(allText);
-                round = allText;
-                getNum(allText);
-                
-                console.log(typeof(allText))
-                oldVal = allText;*/
-            }
-        }
-    }
-    rawFile.send(null);
-}
-//readTextFile('https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt');
-readTextFile('https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt');
-function getFollowCount() {
-    fetch('https://api.github.com/repos/CLor4344/follower/contents/newFollowCount.txt'+"?dummy="+Date.now(), {
-        method: "GET",
-        headers: {
-            Authorization: 'token '
-        }
 
+function cloudUpdate() {
+    console.log("CLOUD");
+    fetch("https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudant.com/testing/_design/ddd/_view/ddd", {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            Authorization: 'Basic ' + btoa('apikey-v2-22yshm6czdhyo8a3ma5071g23ry6kqh5wy5dn8shngca:91fc214302068a55295da29da7e412c7')
+        }
     })
-        .then(response => response.json())
-        .then(data => {
-            //var filesha = data[1].sha
-            var decodable = atob(data.content);
-            console.log(data._links.git + '\n' + decodable); // Prints result from `response.json()` in getRequest
-            document.getElementById('inputss').innerHTML = decodable;
-            console.log(typeof (decodable));
-            console.log(round);
+        .then(res => {
+            if (res.ok) {
+                //console.log(res)
+                return res.json()
+            }
+            else
+                console.log("dun goofed")
+        }).then(data => {
+            console.log(data)
+
+            console.log("this be follower:"+data.rows[0].value.follower)
+            console.log(typeof (data.rows[0].value.follower));
+            var newNumberString = data.rows[0].value.follower.toString();
+            console.log(newNumberString);
             if (round == undefined) {
-                console.log("BEGGINGING " + decodable)
-                getNum(decodable);
-                round = decodable;
+                console.log(newNumberString);
+                getNum(newNumberString);
+                round = newNumberString
             }
             else {
-                console.log("UPDATING " + round + " "+ decodable);
-                updateNum(round, decodable);
-                round = decodable;
+                updateNum(round, newNumberString);
+                round = newNumberString
             }
         })
         .catch(error => console.error(error))
-        setTimeout(getFollowCount, 5000);
+    setTimeout(cloudUpdate, 5000);
 }
-getFollowCount();
 
+cloudUpdate();
 const element = document.getElementById("change");
 element.addEventListener("click", function () {
     document.querySelector('#textarea').classList.add('changed');
@@ -76,20 +53,9 @@ element2.addEventListener("click", function () {
     oldVal = (parseInt(oldVal) + 1).toString();
 });
 const element3 = document.getElementById("testMove");
-
-function paged() {
-    fetch("https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt", {
-        cache: 'no-store'
-    })
-        .then(r => r.text())
-        .then(t => {
-            document.getElementById('inputsss').innerHTML = t;
-            //console.log('testing' + t);
-        });
-    setTimeout(paged, 5000);
-
-}
-paged();
+element3.addEventListener("click", function () {
+    cloudUpdate();
+});
 
 function getNum(num) {
     var firstArray = num.split('');
@@ -103,7 +69,6 @@ function getNum(num) {
         const slides = document.querySelectorAll('.slides');
         var slideHeight = document.querySelector('.num-slide').getBoundingClientRect().height;
         var num = parseInt(firstArray[i]);
-        console.log(num);
         var moveAmount = num * slideHeight + 'px';
         //console.log(moveAmount);
         slides[i].style.transform = 'translateY(-' + moveAmount + ')';
@@ -111,25 +76,10 @@ function getNum(num) {
     }
 
 
-    /*const slides = document.querySelectorAll('.slides');
-    console.log(slides);
-
-    //const currentSlide = slides.querySelector('.current-slide');
-
-    //console.log(num + currentSlide.innerHTML);
-
-
-    const moveAmount = num * 100 + 'px';
-    const numDiv = 'num-' + num;
-
-    slides[2].style.transform = 'translateY(-' + moveAmount + ')';
-    const testing = document.getElementById(numDiv);
-    //currentSlide.classList.remove('current-slide');
-    testing.classList.add('current-slide');*/
 }
 var testJump = 0;
 function updateNum(oldNum, newNum) {
-    console.log(oldNum + '     ' + newNum);
+    console.log("old and new "+ oldNum + '     ' + newNum);
     var oldArray = oldNum.split("");
     var newArray = newNum.toString().split("");
     console.log(oldArray + ' ' + newArray);
@@ -137,14 +87,6 @@ function updateNum(oldNum, newNum) {
         document.getElementById('sixth-digit').style.opacity = 1;
     }
     if (oldArray.length == newArray.length) {
-        //console.log('equal length');
-        //console.log('jump ' + testJump);
-
-        //console.log(num);
-
-        //const numDiv = 'num-' + num;
-
-
         for (var i = 0; i < oldArray.length; i++) {
             var num = (parseInt(oldArray[i]) - parseInt(newArray[i])) * -1;
             num += parseInt(oldArray[i]);
@@ -155,7 +97,6 @@ function updateNum(oldNum, newNum) {
             var moveAmount = num * slideHeight + 'px';
             //console.log('old plus new ' + num);
             if (num <= 9) {
-                console.log(moveAmount);
                 slides[i].style.transform = 'translateY(-' + moveAmount + ')';
             }
             else

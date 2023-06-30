@@ -6,26 +6,30 @@
     max-height: 100px;
     display: flex;
 }
+
 body {
     padding: 25px;
     background-color: #15202B;
-  }
+}
 
-.img-container{
+.img-container {
     width: auto;
     margin-right: 10px;
     max-width: 100px;
     transform: translateY(-3px);
 }
-.twit-img{
+
+.twit-img {
     width: 100%;
     object-fit: contain;
     border-radius: 50%;
     border: solid;
     border-color: aliceblue;
 }
-.prof-img{
-    width: 30%;
+
+.prof-img {
+    max-width: 376px;
+    min-width: 376px;
     object-fit: contain;
     border-radius: 50%;
     border: solid;
