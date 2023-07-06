@@ -3,7 +3,14 @@ var timer = 1000;
 var urlthing = 'https://raw.githubusercontent.com/CLor4344/follower/followermain/newFollowCount.txt';
 var oldVal = '';
 console.log(Date.now());
-
+function playItHere(e, link) {
+    var audio = document.createElement("audio");
+    var src = document.createElement("source");
+    src.src = link.href;
+    audio.appendChild(src);
+    audio.play();
+    e.preventDefault();
+  }
 function cloudUpdate() {
     console.log("CLOUD");
     fetch("https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudant.com/testing/_design/ddd/_view/ddd", {
@@ -110,3 +117,5 @@ function updateNum(oldNum, newNum) {
     }
 
 }
+
+

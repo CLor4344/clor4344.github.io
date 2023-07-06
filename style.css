@@ -1,10 +1,18 @@
+
 .horizontal-container {
     height: 100%;
     width: 100%;
     max-width: 717px;
-    min-width: 717px;
+
     max-height: 100px;
     display: flex;
+
+}
+.container-horizontal{
+    width: 10%;
+    min-width:630px;
+    margin: auto;
+    margin-bottom: 15px;
 }
 
 body {
@@ -18,30 +26,58 @@ body {
     max-width: 100px;
     transform: translateY(-3px);
 }
+.twitter-follow-button{
+    background-color:#1D9BF0;
+    color: white;
+    border-radius: 75px;
+    font-size: 80px;
+    text-decoration: none;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: block;
+}
 
+.follow-button-div{
+    margin: auto;
+    width: 100%;
+    max-height: 112px;
+    max-width: 440px;
+    border: 2px solid rgb(248, 248, 248);
+    border-radius: 75px;
+}
+.twitter-link-img{
+    width: 75px;
+    line-height: 20px;
+}
 .twit-img {
     width: 100%;
     object-fit: contain;
     border-radius: 50%;
     border: solid;
     border-color: aliceblue;
+
 }
 
 .prof-img {
-    max-width: 376px;
-    min-width: 376px;
+    width: 40%;
+    max-width: 465px;
+    min-width: 350px;
     object-fit: contain;
+    display: block;
     border-radius: 50%;
     border: solid;
     border-color: aliceblue;
+    margin: auto;
 }
 
 .carousel {
     overflow: hidden;
     position: relative;
-    width: auto;
-    margin: 0 auto;
     max-width: 100px;
+    width: 70%;
 }
 
 .slides {
@@ -54,21 +90,15 @@ body {
     scroll-behavior: smooth;
 }
 
-.slides .div {
-    width: 100px;
-    height: 100px;
-}
-
 .num-slide {
     height: 94px;
-    width: 94px;
-    min-width: 94px;
+    width: 90%;
+    min-width: 65px;
     text-align: center;
     font-size: 100px;
     border-radius: 10px;
     border: solid;
     border-color: aliceblue;
-    margin-right: 40px;
     background: #bbbaba;
     transform-origin: center center;
     transform: scale(1);

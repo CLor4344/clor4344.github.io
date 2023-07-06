@@ -53,7 +53,7 @@ fetch('https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudantnosqldb.appd
     //console.log(testing);
   console.log("hnn") // Prints result from `response.json()` in getRequest
 })
-*/
+
 
 fetch("https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudant.com/testing/_design/ddd/_view/ddd", {
     method: "GET",
@@ -74,3 +74,15 @@ fetch("https://754cc620-e51b-4c58-8faa-2f4897098a38-bluemix.cloudant.com/testing
         console.log(data.rows[0].value.follower)
     })
 
+*/
+fetch('https://api.twitter.com/1.1/followers/ids.json')
+.then(res =>{
+    if(res.ok){
+        console.log('testing');
+    }
+    else{
+        console.log('woops');
+        return res.text().then(text => { throw new Error(text) })
+    }
+        
+})
