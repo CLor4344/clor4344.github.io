@@ -38,6 +38,7 @@ body {
     padding-bottom: 10px;
     text-align: center;
     display: block;
+    border: 2px solid rgb(248, 248, 248);
 }
 
 .follow-button-div{
@@ -45,8 +46,7 @@ body {
     width: 100%;
     max-height: 112px;
     max-width: 440px;
-    border: 2px solid rgb(248, 248, 248);
-    border-radius: 75px;
+
 }
 .twitter-link-img{
     width: 75px;
@@ -109,3 +109,62 @@ body {
 .changed {
     background-color: aquamarine;
 }
+
+@media screen and (max-width: 858px) {
+      .carousel{
+        max-height: 100px;
+      }
+
+}
+@media screen and (max-width: 857px)and (min-width: 686px) {
+    .carousel{
+      max-height: 98.8px;
+    }
+
+}
+@media screen and (max-width: 685px)and (min-width: 572px) {
+    .carousel{
+      max-height: 98px;
+    }
+
+}
+@media screen and (max-width: 571px)and (min-width: 490px) {
+    .carousel{
+      max-height: 97.5px;
+    }
+
+}
+@media screen and (max-width: 489px)and (min-width: 429px) {
+    .carousel{
+      max-height: 97px;
+    }
+
+}
+@media screen and (max-width: 428px)and (min-width: 343px) {
+    .carousel{
+      max-height: 96.5px;
+    }   
+}
+@media screen and (max-width: 342px)and (min-width: 286px) {
+    .carousel{
+      max-height: 96px;
+    }
+
+}
+@media screen and (max-width: 285px)and (min-width: 214px) {
+    .carousel{
+      max-height: 95.5px;
+    }
+
+}@media screen and (max-width: 213px)and (min-width: 171px) {
+    .carousel{
+      max-height: 95.2px;
+    }
+
+}
+
+
+
+
+
+
