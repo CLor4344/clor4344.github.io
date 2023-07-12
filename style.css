@@ -157,7 +157,6 @@ body {
     .img-container {
         margin-right: 5px;
         width: 500px;
-        transform: translateY(3px);
     }
     .num-slide{
         font-size: 75px;

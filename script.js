@@ -33,7 +33,9 @@ function cloudUpdate() {
             console.log("this be follower:"+data.rows[0].value.follower)
             console.log(typeof (data.rows[0].value.follower));
             var newNumberString = data.rows[0].value.follower.toString();
-            console.log(newNumberString);
+            var newPic = data.rows[0].value.img.toString();
+            console.log(newNumberString+ '' + newPic);
+            document.getElementById('profile-image').src = newPic;
             if (round == undefined) {
                 console.log(newNumberString);
                 getNum(newNumberString);
@@ -68,8 +70,33 @@ function getNum(num) {
     var firstArray = num.split('');
     console.log('first array length ' + firstArray.length);
     if (firstArray.length < 6) {
-        document.getElementById('sixth-digit').style.opacity = 0;
+        document.getElementById('sixth-digit').parentElement.style.display ="none";
+        document.getElementById('seventh-digit').parentElement.style.display ="none";
+        document.getElementById('eighth-digit').parentElement.style.display ="none";
+
         console.log('working?');
+    }
+    else if(firstArray.length == 6){
+
+        document.getElementById('sixth-digit').parentElement.style.display ="block";
+        document.getElementById('sixth-digit').style.opacity =1;
+        document.getElementById('seventh-digit').parentElement.style.display ="none";
+        document.getElementById('eighth-digit').parentElement.style.display ="none";
+    }
+    else if(firstArray.length == 7){
+        document.getElementById('sixth-digit').parentElement.style.display ="block";
+        document.getElementById('sixth-digit').style.opacity =1;
+        document.getElementById('seventh-digit').parentElement.style.display ="block";
+        document.getElementById('seventh-digit').style.opacity =1;
+        document.getElementById('eighth-digit').parentElement.style.display ="none";
+    }
+    else if(firstArray.length == 8){
+        document.getElementById('sixth-digit').parentElement.style.display ="block";
+        document.getElementById('sixth-digit').style.opacity =1;
+        document.getElementById('seventh-digit').parentElement.style.display ="block";
+        document.getElementById('seventh-digit').style.opacity =1;
+        document.getElementById('eighth-digit').parentElement.style.display ="block";
+        document.getElementById('eighth-digit').style.opacity =1;
     }
 
     for (var i = 0; i < firstArray.length; i++) {
@@ -91,6 +118,7 @@ function updateNum(oldNum, newNum) {
     var newArray = newNum.toString().split("");
     console.log(oldArray + ' ' + newArray);
     if (newArray.length >= 6) {
+        document.getElementById('sixth-digit').style.display = "block";
         document.getElementById('sixth-digit').style.opacity = 1;
     }
     if (oldArray.length == newArray.length) {
