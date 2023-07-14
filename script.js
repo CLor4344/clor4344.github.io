@@ -36,6 +36,9 @@ function cloudUpdate() {
             var newPic = data.rows[0].value.img.toString();
             console.log(newNumberString+ '' + newPic);
             document.getElementById('profile-image').src = newPic;
+            var testName = data.rows[0].value.user;
+            document.getElementById('intent-button').href = "https://twitter.com/intent/user?screen_name="+ testName;
+            console.log(testName);
             if (round == undefined) {
                 console.log(newNumberString);
                 getNum(newNumberString);
