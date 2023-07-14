@@ -1,21 +1,25 @@
-.main-page div{
+.main-page div {
     position: relative;
 }
+
 .horizontal-container {
     height: 100%;
     width: 100%;
-    max-width: 717px;
-
     max-height: 100px;
+    max-width: 740px;
     display: flex;
-
+    justify-content: center;
+  
 }
-.container-horizontal{
+
+.container-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 10%;
-    min-width:630px;
+    min-width: 90%;
     margin: auto;
     margin-bottom: 15px;
-
 }
 
 body {
@@ -24,13 +28,17 @@ body {
 }
 
 .img-container {
+    display: flex;
     width: auto;
-    margin-right: 10px;
+    margin-right: 5px;
     max-width: 100px;
-    transform: translateY(-3px);
+
+    align-items: center;
+    justify-content: center;
 }
-.twitter-follow-button{
-    background-color:#1D9BF0;
+
+.twitter-follow-button {
+    background-color: #1D9BF0;
     color: white;
     border-radius: 75px;
     font-size: 80px;
@@ -45,17 +53,19 @@ body {
 
 }
 
-.follow-button-div{
+.follow-button-div {
     margin: auto;
     width: 100%;
     max-height: 112px;
     max-width: 440px;
 
 }
-.twitter-link-img{
+
+.twitter-link-img {
     width: 75px;
     line-height: 20px;
 }
+
 .twit-img {
     width: 100%;
     object-fit: contain;
@@ -66,7 +76,7 @@ body {
 
 .prof-img {
     width: 40%;
-    max-width: 465px;
+    max-width: 350px;
     min-width: 350px;
     object-fit: contain;
     display: block;
@@ -94,10 +104,13 @@ body {
 }
 
 .num-slide {
+    display: flex;
     height: 94px;
     width: 90%;
     min-width: 25px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     font-size: 100px;
     border-radius: 10px;
     border: solid;
@@ -106,7 +119,17 @@ body {
     transform-origin: center center;
     transform: scale(1);
     transition: transform 0.5s;
-    line-height: 100px;
+}
+.comma{
+    position: relative;
+    min-width: 6px;
+}
+.comma span {
+    position: absolute;
+    bottom: -5px;
+    left: -1px;
+    color: aliceblue;
+    font-size: 25px;
 }
 
 .changed {
@@ -114,76 +137,107 @@ body {
 }
 
 @media screen and (max-width: 686px) {
-      .carousel{
+    .carousel {
         max-height: 100px;
-      }
+    }
 
 }
+
 @media screen and (max-width: 685.99px)and (min-width: 572px) {
-    .carousel{
-      max-height: 96px;
+    .carousel {
+        max-height: 96px;
+        margin-right:-3px;
+    }
+    .twitter-follow-button {
+        font-size: 65px;
+    }
+
+    .twitter-link-img {
+        width: 60px;
     }
 
 }
+
 @media screen and (max-width: 571.99px)and (min-width: 490px) {
-    .carousel{
-      max-height: 96px;
+    .carousel {
+        max-height: 96px;
     }
 
 }
+
 @media screen and (max-width: 489.99px)and (min-width: 429px) {
-    .carousel{
-      max-height: 95.5px;
+    .carousel {
+        max-height: 95.5px;
     }
 
 }
+
 @media screen and (max-width: 428.99px)and (min-width: 343px) {
-    .prof-img{
-        min-width: 300px;
+    .prof-img {
+        min-width: 250px;
     }
-    .carousel{
-      max-height: 95.2px;
-      min-width: 40px;
-    }   
-    .container-horizontal{
-        min-width:350px;
+
+    .carousel {
+        max-height: 95.2px;
+        min-width: 10%;
+        height: 82px;
     }
-    .twitter-follow-button{
+
+    .container-horizontal {
+        min-width: 345px;
+    }
+    .comma{
+        min-width: 2px;
+    }
+    .twitter-follow-button {
         font-size: 55px;
     }
-    .twitter-link-img{
+
+    .twitter-link-img {
         width: 50px;
     }
+
     .img-container {
+        display: flex;
         margin-right: 5px;
+        margin-left: 5px;
         width: 500px;
+        max-width: 60px;
+        transform: translateY(0px);
+
     }
-    .num-slide{
-        font-size: 75px;
+
+    .num-slide {
+        font-size: 3.5em;
+        height: 80px;
+    }
+    .comma span {
+        bottom: -5px;
+        left: -3px;
     }
 }
+
+
+
 @media screen and (max-width: 342.99px)and (min-width: 286px) {
-    .carousel{
-      max-height: 95.2px;
+    .carousel {
+        max-height: 95.2px;
     }
 
 }
+
 @media screen and (max-width: 285.99px)and (min-width: 214px) {
-    .carousel{
-      max-height: 95.2px;
+    .carousel {
+        max-height: 95.2px;
     }
 
-}@media screen and (max-width: 213.99px){
-    .carousel{
-      max-height: 95.2px;
+}
+
+@media screen and (max-width: 213.99px) {
+    .carousel {
+        max-height: 95.2px;
     }
 
 
 
 }
-
-
-
-
-
-
