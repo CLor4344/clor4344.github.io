@@ -176,7 +176,7 @@ function getNum(num) {
         const slides = document.querySelectorAll('.slides');
         var slideHeight = document.querySelector('.num-slide').getBoundingClientRect().height;
         var num = parseInt(firstArray[i]);
-        var moveAmount = num * slideHeight + 'px';
+        var moveAmount = num * (slideHeight+20) + 'px';
         //console.log(moveAmount);
         slides[i].style.transform = 'translateY(-' + moveAmount + ')';
 
@@ -202,8 +202,9 @@ function updateNum(oldNum, newNum) {
             var slides = document.querySelectorAll('.slides');
             var slideHeight = document.querySelector('.num-slide').getBoundingClientRect().height;
 
-            var moveAmount = num * slideHeight + 'px';
+            var moveAmount = num * (slideHeight+20)+ 'px';
             //console.log('old plus new ' + num);
+            console.log(moveAmount);
             if (num <= 9) {
                 slides[i].style.transform = 'translateY(-' + moveAmount + ')';
             }

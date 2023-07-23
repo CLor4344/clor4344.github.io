@@ -107,6 +107,7 @@ body {
     display: flex;
     height: 94px;
     width: 90%;
+    margin-bottom: 20px;
     min-width: 25px;
     text-align: center;
     align-items: center;
@@ -122,12 +123,12 @@ body {
 }
 .comma{
     position: relative;
-    min-width: 6px;
+    min-width: 3px;
 }
 .comma span {
     position: absolute;
     bottom: -5px;
-    left: -1px;
+    left: -2px;
     color: aliceblue;
     font-size: 25px;
 }
@@ -145,22 +146,17 @@ body {
 
 @media screen and (max-width: 685.99px)and (min-width: 572px) {
     .carousel {
-        max-height: 96px;
-        margin-right:-3px;
-    }
-    .twitter-follow-button {
-        font-size: 65px;
-    }
-
-    .twitter-link-img {
-        width: 60px;
+        max-height: 100px;
     }
 
 }
 
 @media screen and (max-width: 571.99px)and (min-width: 490px) {
     .carousel {
-        max-height: 96px;
+        max-height: 100px;
+    }
+    .horizontal-container{
+        min-width: 441px;
     }
 
 }
